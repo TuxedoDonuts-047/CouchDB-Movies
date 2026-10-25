@@ -1,3 +1,5 @@
+# CouchDB-Movies
+
 # Movie Shelf
 
 An offline-first movie catalog built with Express and PouchDB. Movie documents are stored in the browser's IndexedDB database named `schema_a_movies`; `public/schema_a_movies.json` describes the document shape. Changes save locally immediately and replicate continuously to the CouchDB database `movies` when it is reachable.
