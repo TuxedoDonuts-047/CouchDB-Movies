@@ -1,0 +1,8 @@
+{
+  "name": "Movie shelf",
+  "short_name": "Movies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5ef",
+  "theme_color": "#172b27"
+}

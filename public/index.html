@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#172b27">
+    <title>Movie shelf</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="layout">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Movie shelf home"><span class="mark">M</span> Movie shelf</a>
+        <div class="topbar-tools">
+          <div class="connection" aria-live="polite">
+            <span class="connection-dot" id="connection-dot"></span>
+            <span id="connection-label">Starting local database</span>
+          </div>
+          <button class="sync-toggle" id="sync-toggle" type="button" aria-pressed="true">Cloud sync: On</button>
+        </div>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL ARCHIVE</p>
+          <h1 id="page-title">Movies, <em>kept.</em></h1>
+        </div>
+        <p class="intro-note">Your changes save on this device first.<br>They sync when CouchDB is reachable.</p>
+      </section>
+
+      <section class="workspace" aria-label="Movie collection">
+        <section class="editor" aria-labelledby="form-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">COLLECTION</p>
+              <h2 id="form-title">Add a movie</h2>
+            </div>
+            <span class="local-tag">LOCAL FIRST</span>
+          </div>
+          <form id="movie-form">
+            <input type="hidden" id="movie-id">
+            <label for="title">Title <span aria-hidden="true">*</span></label>
+            <input id="title" name="title" type="text" maxlength="160" placeholder="e.g. In the Mood for Love" required>
+            <label for="actors">Actors</label>
+            <input id="actors" name="actors" type="text" maxlength="500" placeholder="Actor names, separated by commas">
+            <label for="genres">Genres</label>
+            <input id="genres" name="genres" type="text" maxlength="200" placeholder="Genres, separated by commas">
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" id="save-button">Save movie</button>
+              <button class="button button-quiet hidden" type="button" id="cancel-button">Cancel</button>
+            </div>
+            <p class="form-message" id="form-message" role="status"></p>
+          </form>
+        </section>
+
+        <section class="collection" aria-labelledby="collection-title">
+          <div class="collection-heading">
+            <div>
+              <p class="eyebrow">THE SHELF</p>
+              <h2 id="collection-title">Your movies <span id="movie-count">0</span></h2>
+            </div>
+            <div class="collection-tools">
+              <span class="sync-caption" id="sync-caption">Waiting for local database</span>
+              <button class="button button-quiet import-button" id="import-button" type="button">Import dataset</button>
+            </div>
+          </div>
+          <p class="import-message" id="import-message" role="status"></p>
+          <div class="movie-list" id="movie-list" aria-live="polite"></div>
+          <div class="empty-state" id="empty-state">
+            <span class="empty-mark" aria-hidden="true">+</span>
+            <p>Your shelf is clear.</p>
+            <span>Add a movie to start your collection.</span>
+          </div>
+        </section>
+      </section>
+      <footer><span>Changes are stored on this device</span><span class="footer-divider"></span><span>Sync runs automatically</span></footer>
+    </main>
+    <script src="/app.bundle.js" defer></script>
+  </body>
+</html>

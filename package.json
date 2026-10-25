@@ -1,0 +1,19 @@
+{
+  "name": "offline-movies",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/app.js --bundle --minify --outfile=public/app.bundle.js",
+    "start": "npm run build && node server.js"
+  },
+  "dependencies": {
+    "events": "^3.3.0",
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5",
+    "pouchdb-browser": "^9.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
